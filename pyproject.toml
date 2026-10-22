@@ -1,0 +1,71 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "reversible-fractional-attention"
+version = "0.1.0"
+description = "Attention as a linear dynamic system with O(1) state and an exactly reversible time step."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "RFA Contributors" }]
+keywords = [
+    "attention",
+    "linear-attention",
+    "reversible",
+    "inference",
+    "pytorch",
+    "streaming",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["torch>=2.1"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+    "pre-commit>=3.7",
+]
+examples = [
+    "matplotlib>=3.7",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/reversible-fractional-attention"
+Repository = "https://github.com/your-org/reversible-fractional-attention"
+Issues = "https://github.com/your-org/reversible-fractional-attention/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rfa"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --tb=short"
+filterwarnings = [
+    "error::UserWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests", "examples"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "W"]
+ignore = ["E501"]  # line length handled by formatter
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["N802", "N803"]  # allow camelCase fixture names matching the math
+
+[tool.ruff.format]
+quote-style = "double"
