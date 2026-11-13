@@ -1,4 +1,18 @@
+<div align="center">
+
+<img src="docs/banner.svg" alt="reversible-fraction-attention banner" width="1000">
+
 # Reversible Fractional Attention (RFA)
+
+[![CI](https://img.shields.io/badge/CI-pytest%20%2B%20ruff-blue)](.github/workflows/ci.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
+[![Built with uv](https://img.shields.io/badge/built%20with-uv-purple)](https://docs.astral.sh/uv/)
+
+</div>
+
+---
+
 
 > Attention as a **linear dynamic system** with **O(1) state** and an **exactly
 > reversible** time step. A research-grade PyTorch implementation extracted
