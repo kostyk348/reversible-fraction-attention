@@ -53,6 +53,9 @@ testpaths = ["tests"]
 addopts = "-ra --tb=short"
 filterwarnings = [
     "error::UserWarning",
+    # torch предупреждает, что не нашёл numpy: для тестов он не нужен,
+    # а под error::UserWarning это предупреждение роняло сбор conftest
+    "ignore:Failed to initialize NumPy:UserWarning",
 ]
 
 [tool.ruff]
