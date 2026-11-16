@@ -68,7 +68,7 @@ without breaking the inverse.
 ## Installation
 
 ```bash
-git clone https://github.com/your-org/reversible-fractional-attention.git
+git clone https://github.com/kostyk348/reversible-fraction-attention.git
 cd reversible-fractional-attention
 uv sync --extra dev         # or: pip install -e ".[dev]"
 pytest                      # ~5 seconds on CPU
